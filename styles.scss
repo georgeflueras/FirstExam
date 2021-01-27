@@ -1,0 +1,88 @@
+$theme-colors: ( //Variabile folosite pentru culori
+    header-color: burlywood,
+    background-color: bisque,
+    text-color: black,
+);
+
+@mixin flexbox-param($fl-direction) {
+
+    //Mixin folosit pentru partea responsive a task-ului
+    body {
+        font-size: 80%;
+    }
+
+    .main-container {
+        margin-top: 270px; //Textul nu este acoperit de meniu
+    } 
+
+    ul {
+        margin-right: 20px;
+        display: flex;
+        flex-direction: $fl-direction;
+
+        a {
+            display: block; //Cand se face hover, elementul mai inchis la culoare are toata latimiea meniului
+        }
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; //Setarea familiei de fonturi
+    background-color: map-get($theme-colors, background-color);
+    margin: 0; //Alinierea meniului pe toata latimea paginii
+
+    main {
+        nav {
+            background-color: map-get($theme-colors, header-color);
+            padding: 10px;
+            width: 100%;
+            position: fixed; //Pastrarea meniului pe partea de sus a paginii cand se deruleaza continutul paginii
+            top: 0;
+
+            ul {
+                padding-top: 10px;
+                text-align: center;
+                padding-inline-start: 0;
+
+                li {
+                    display: inline;
+                    padding: 10px;
+
+                    a {
+                        color: map-get($theme-colors, text-color);
+                        text-decoration: none;
+                        font-size: 1.3em; //Setarea marimii fontului pentru meniu la 1.3em
+                        padding: 5px;
+
+                        &:hover {
+                            background-color: darken(burlywood, 25%); //Schimbul culorii de fundal la hover cu 25% mai inchis
+                            border-radius: 5px; //Colturi rotunjite cu 5px
+                            cursor: pointer; //Cursorul se schimba in pointer
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*Formatari ale paragrafelor si titlului*/
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        margin: 10px;
+        text-align: justify;
+    }
+}
+
+/*Media queries folosite pentru partea responsive a paginii*/
+@media (max-width:500px) {
+    @include flexbox-param(column);
+}
+
+@media (min-width:501px) {
+    .main-container {
+        margin-top: 100px; //Textul nu este acoperit de meniu
+    }
+}

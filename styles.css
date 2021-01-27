@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: bisque;
+  margin: 0;
+  /*Formatari ale paragrafelor si titlului*/
+}
+
+body main nav {
+  background-color: burlywood;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+body main nav ul {
+  padding-top: 10px;
+  text-align: center;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+body main nav ul li {
+  display: inline;
+  padding: 10px;
+}
+
+body main nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.3em;
+  padding: 5px;
+}
+
+body main nav ul li a:hover {
+  background-color: #b47b32;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body h1 {
+  text-align: center;
+}
+
+body p {
+  margin: 10px;
+  text-align: justify;
+}
+
+/*Media queries folosite pentru partea responsive a paginii*/
+@media (max-width: 500px) {
+  body {
+    font-size: 80%;
+  }
+  .main-container {
+    margin-top: 270px;
+  }
+  ul {
+    margin-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  ul a {
+    display: block;
+  }
+}
+
+@media (min-width: 501px) {
+  .main-container {
+    margin-top: 100px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
